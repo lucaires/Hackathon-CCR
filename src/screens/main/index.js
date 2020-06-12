@@ -1,9 +1,9 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Home from "./screens/Home";
-import Load from "./screens/Load";
-import Map from "./screens/Map";
+import Home from "../Home";
+import Load from "../Load";
+import Map from "../Map";
 import {
   FontAwesome,
   Octicons,
