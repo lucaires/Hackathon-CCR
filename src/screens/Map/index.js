@@ -1,6 +1,13 @@
 import React from "react";
-import { Text } from "react-native";
+import MapView from 'react-native-maps';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+
+import styles from "./style"
 
 export default function Map() {
-  return <Text></Text>;
+  return (
+    <View style={styles.container}>
+      <MapView style={styles.mapStyle} />
+    </View>
+  );
 }
