@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Dimensions } from 'react-native';
 
-export default StyleSheet.create({
+const style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -9,7 +9,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   mapStyle: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    width: "100%",
+    height: "100%",
   },
 });
+export default style
