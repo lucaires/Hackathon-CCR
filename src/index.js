@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import * as firebase from 'firebase';
 
-import Main from "./screens/main";
+import Routes from "./routes";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCWAOgnCaClxUndQzS_OP-bp_vAP268e54",
@@ -17,12 +17,10 @@ const firebaseConfig = {
 };
 
 export default function App() {
-  React.useEffect(()=>{
+  React.useEffect(() => {
     firebase.initializeApp(firebaseConfig)
-  },[])
+  }, [])
   return (
-    <NavigationContainer>
-      <Main />
-    </NavigationContainer>
+    <Routes />
   );
 }

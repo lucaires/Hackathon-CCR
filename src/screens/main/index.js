@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Home from "../Home";
-import Load from "../Load";
+import Filters from "../Filters";
 import Map from "../Map";
 import {
   FontAwesome,
@@ -19,17 +19,9 @@ const icons = {
     lib: AntDesign,
     name: "home",
   },
-  Load: {
-    lib: Feather,
-    name: "truck",
-  },
   Map: {
     lib: FontAwesome,
     name: "map-o",
-  },
-  Notification: {
-    lib: MaterialIcons,
-    name: "notifications-none",
   },
   Settings: {
     lib: Octicons,
@@ -48,17 +40,11 @@ export default function Navigation() {
       })}
     >
       <Tab.Screen name="Home" component={Home} options={{ title: "Inicio" }} />
-      <Tab.Screen name="Load" component={Load} options={{ title: "Cargas" }} />
       <Tab.Screen name="Map" component={Map} options={{ title: "Mapa" }} />
       <Tab.Screen
-        name="Notification"
-        component={Map}
-        options={{ title: "Notificações" }}
-      />
-      <Tab.Screen
         name="Settings"
-        component={Map}
-        options={{ title: "Ajustes" }}
+        component={Filters}
+        options={{ title: "Filtros" }}
       />
     </Tab.Navigator>
   );
