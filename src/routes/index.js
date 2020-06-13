@@ -14,19 +14,19 @@ export default function Routes() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Start"
+          component={Start}
+          options={{ header: () => { } }}
+        />
+        <Stack.Screen
           name="Main"
           component={Main}
         // options={{ title: "", headerTransparent: true }}
         />
         <Stack.Screen
-          name="Start"
-          component={Start}
-        // options={{ header: () => { } }}
-        />
-        <Stack.Screen
           name="SignIn"
           component={SingIn}
-        // options={{ header: () => { } }}
+        options={{ title: "Login" }}
         />
         <Stack.Screen
           name="SignUp"

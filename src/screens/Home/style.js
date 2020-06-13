@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 });
-export default style;
+export default styles;
