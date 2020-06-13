@@ -5,7 +5,7 @@ export default StyleSheet.create({
    backGround: {
       flex: 1,
       flexDirection: "column",
-      backgroundColor: Colors.blue,
+      // backgroundColor: Colors.blue,
    },
    totalView: {
       flex: 1,
@@ -36,14 +36,9 @@ export default StyleSheet.create({
       color: Colors.white
    },
    button: {
-      backgroundColor: Colors.white,
-      borderBottomLeftRadius: 50,
-      borderBottomRightRadius: 50,
-      borderTopLeftRadius: 50,
-      borderTopRightRadius: 50,
-      paddingVertical: 10,
-      paddingHorizontal: 20,
-      marginBottom: 30
+      marginTop: 30,
+      backgroundColor: Colors.blue,
+      color: Colors.white
    },
    buttonText: {
       fontWeight: "bold",

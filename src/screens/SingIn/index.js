@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, ImageBackground, TouchableOpacity, ScrollView, Image, Platform, KeyboardAvoidingView } from "react-native"
 
 import { useNavigation } from '@react-navigation/native';
-import {TextInput} from 'react-native-paper';
+import {TextInput , Button} from 'react-native-paper';
 
 import Colors from "../../assets/colors"
 
@@ -10,17 +10,16 @@ import Style from "./style"
 
 const theme = {
   Colors: {
-    text: Colors.white,
-    primary: Colors.white,
-    disabled: Colors.white,
-    placeholder: Colors.white,
-    background: "#00000000",
+    text: Colors.blue,
+    primary: Colors.blue,
+    disabled: Colors.blue,
+    placeholder: Colors.blue,
+    background: "#0000",
   },
   animation: {
     scale: 0.3
   }
 }
-
 export default function SingIn() {
   const Navigation = useNavigation()
   return (
@@ -36,10 +35,9 @@ export default function SingIn() {
           })}
         >
           <TextInput
+          
             keyboardType="email-address"
             autoCapitalize='none'
-            // onSubmitEditing={() => { passwordInput.focus(); }}
-            returnKeyType={"next"}
             theme={theme}
             label="Email"
             maxLength={255}
@@ -48,8 +46,6 @@ export default function SingIn() {
           />
           <TextInput
             autoCapitalize='none'
-            // ref={(input) => { passwordInput = input; }}
-            // onSubmitEditing={_login}
             label="Senha"
             theme={theme}
             secureTextEntry
@@ -59,19 +55,10 @@ export default function SingIn() {
             returnKeyType={"done"}
           />
 
-          <TouchableOpacity
-            style={Style.esqueciSenhaButton}
-            // onPress={() => { Navigation.navigate("PasswordResetRequest") }}
-          >
+          <TouchableOpacity style={Style.esqueciSenhaButton}>
             <Text style={Style.esqueciSenhaTexto}>Esqueceu a senha?</Text>
           </TouchableOpacity>
-          <View style={Style.buttonsView} >
-            <TouchableOpacity >
-              <View style={Style.button}>
-                <Text style={Style.buttonText}>ENTRAR</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+          <Button mode="contained" style={Style.button} onPress={() => Navigation.navigate('Main')} >Entrar</Button>
         </KeyboardAvoidingView>
       </View>
     </View>

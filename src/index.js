@@ -3,6 +3,7 @@ import React from "react";
 import * as firebase from 'firebase';
 
 import Routes from "./routes";
+import { Provider as PaperProvider } from 'react-native-paper';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCWAOgnCaClxUndQzS_OP-bp_vAP268e54",

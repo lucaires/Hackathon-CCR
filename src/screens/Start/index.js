@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Button } from "react-native-paper"
 
 import style from "./style"
+import Colors  from '../../assets/colors';
 
 export default function Start() {
   const Navigation = useNavigation()
@@ -18,8 +19,8 @@ export default function Start() {
         <Text style={style.slogan}>O almanaque do caminhoneiro brasileiro</Text>
       </View>
       <View >
-        <Button style={{container: style.button}} raised primary text="Já tenho uma conta" onPress={() => Navigation.navigate('SignIn')} />
-        <Button style={{text: style.buttonText}} text="criar conta" onPress={() => Navigation.navigate('SignUp')} />
+        <Button mode="contained" style={style.button} text="Já tenho uma conta" onPress={() => Navigation.navigate('SignIn')}>Entrar</Button>
+        <Button color={Colors.white} style={style.buttonText} text="criar conta" onPress={() => Navigation.navigate('SignUp')} >criar conta</Button>
       </View>
     </ImageBackground>
   )
