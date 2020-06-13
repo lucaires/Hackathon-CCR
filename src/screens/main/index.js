@@ -4,13 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../Home";
 import Filters from "../Filters";
 import Map from "../Map";
-import {
-  FontAwesome,
-  Octicons,
-  MaterialIcons,
-  AntDesign,
-  Feather,
-} from "@expo/vector-icons";
+import { FontAwesome, Octicons, AntDesign } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,7 +17,7 @@ const icons = {
     lib: FontAwesome,
     name: "map-o",
   },
-  Settings: {
+  Filter: {
     lib: Octicons,
     name: "settings",
   },
@@ -42,7 +36,7 @@ export default function Navigation() {
       <Tab.Screen name="Home" component={Home} options={{ title: "Inicio" }} />
       <Tab.Screen name="Map" component={Map} options={{ title: "Mapa" }} />
       <Tab.Screen
-        name="Settings"
+        name="Filter"
         component={Filters}
         options={{ title: "Filtros" }}
       />
