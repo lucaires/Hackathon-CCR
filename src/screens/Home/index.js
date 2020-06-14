@@ -13,7 +13,6 @@ export default function Load() {
           style={styles.logo}
           source={require("../../assets/CCR20anos.png")}
         />
-        <Text style={styles.subTitle}>Telefones utéis:</Text>
         <Image
           style={styles.imgTel}
           source={require("../../assets/CCRcontato.png")}
