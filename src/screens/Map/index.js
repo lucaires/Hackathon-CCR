@@ -2,8 +2,10 @@ import React from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, StatusBar } from 'react-native';
 
-import {createPoint, pedagioType, turnOffPointRef} from '../../services/api/points';
+import { createPoint, pedagioType, stopPointType, turnOffPointsRef, getPoints } from '../../services/api/points';
 import pointsArray from '../../services/api/pointsArray';
+import { database } from "firebase"
+import { SvgUri } from "react-native-svg";
 
 import styles from "./style"
 
@@ -14,10 +16,13 @@ export default function Map() {
     latitudeDelta: 50,
     longitudeDelta: 50,
   })
-  const [stopPoints, setStopPoints] = React.useState([])
+
+  const [points, setPoints] = React.useState([])
+
   React.useEffect(() => {
-    getUserLocation()
+    getPoints((data) => setPoints(data))
   }, [])
+
   function getUserLocation() {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -37,22 +42,51 @@ export default function Map() {
     );
   }
   function onMapPress(e) {
-    createPoint({
-      tipo: pedagioType,
-      latLog: {
-        log: e.nativeEvent.coordinate.longitude,
-        lat: e.nativeEvent.coordinate.latitude
-      },
-      preco: 5.0,
-    })
-    console.log(e.nativeEvent.coordinate)
-  }
-  function StopPoints(){
-    return stopPoints.map(
-      <Marker
-
-      />
-    )
+    // getPoints((data)=>setPoints(data))
+    // createPoint({
+    //   tipo: pedagioType,
+    //   latLog: {
+    //     longitude: e.nativeEvent.coordinate.longitude,
+    //     latitude: e.nativeEvent.coordinate.latitude
+    //   },
+    //   preco: 5.0,
+    // })
+    // createPoint({
+    //   tipo: stopPointType,
+    //   latLog: {
+    //     longitude: e.nativeEvent.coordinate.longitude-10,
+    //     latitude: e.nativeEvent.coordinate.latitude-10
+    //   },
+    //   medico: {
+    //     pago: false
+    //   },
+    //   avaliacao: 2,
+    //   conbustivel: {
+    //     preco: 2
+    //   },
+    //   food: {
+    //     lanchonete: true,
+    //     cafe_manha: false,
+    //     almoco: true,
+    //     janta: true
+    //   },
+    //   sanitario: {
+    //     preco: 0,
+    //     avaliacao: 3
+    //   },
+    //   chuveiro: {
+    //     preco: 10,
+    //     avaliacao: 5
+    //   },
+    //   per_noite: {
+    //     preco: 10,
+    //     avaliacao: 2,
+    //   },
+    //   borracaria: false,
+    //   mecanico: false,
+    //   seguranca: 2
+    // })
+    // console.log(e.nativeEvent.coordinate)
   }
   return (
     <>
@@ -66,7 +100,20 @@ export default function Map() {
           showsUserLocation={true}
           showsMyLocationButton={true}
         >
-          {/* <StopPoints /> */}
+          {points.map(point => (
+            <Marker
+              onPress={() => {
+                console.log(point)
+              }}
+              coordinate={point.latLog}
+            >
+              {/* <SvgUri
+                width={42}
+                height={42}
+                uri={"https://image.flaticon.com/icons/svg/2962/2962901.svg"}
+              /> */}
+            </Marker>
+          ))}
         </MapView>
       </View>
     </>

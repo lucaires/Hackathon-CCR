@@ -5,7 +5,7 @@ import Home from "../Home";
 import Filters from "../Filters";
 import Map from "../Map";
 import { FontAwesome, Octicons, AntDesign } from "@expo/vector-icons";
-
+import { turnOffPointsRef } from '../../services/api/points';
 const Tab = createBottomTabNavigator();
 
 const icons = {
@@ -24,6 +24,9 @@ const icons = {
 };
 
 export default function Navigation() {
+  React.useEffect(()=>{
+    return turnOffPointsRef()
+  },[])
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
