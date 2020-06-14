@@ -2,7 +2,10 @@ import React from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, StatusBar } from 'react-native';
 
-import { createPoint, pedagioType, stopPointType, turnOffPointsRef, getPoints } from '../../services/api/points';
+import {
+  createPoint, turnOffPointsRef, getPoints,
+  pedagioType, stopPointType, medicalType, packageType
+} from '../../services/api/points';
 import pointsArray from '../../services/api/pointsArray';
 import { database } from "firebase"
 import { SvgUri } from "react-native-svg";
@@ -28,10 +31,10 @@ export default function Map() {
       position => {
         console.log(position)
         setRegion({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          latitudeDelta: 0.01,
-          longitudeDelta: 0.01,
+          "latitude": -23.419229990400986,      
+          "latitudeDelta": 0.061393467620753484,
+          "longitude": -46.393510680645704,     
+          "longitudeDelta": 0.0451606884598732, 
         })
       },
       error =>
@@ -42,7 +45,6 @@ export default function Map() {
     );
   }
   function onMapPress(e) {
-    // getPoints((data)=>setPoints(data))
     // createPoint({
     //   tipo: pedagioType,
     //   latLog: {
@@ -52,10 +54,34 @@ export default function Map() {
     //   preco: 5.0,
     // })
     // createPoint({
-    //   tipo: stopPointType,
+    //   tipo: packageType,
+    //   valor: 500,
+    //   quantidade: 2000,
+    //   contratante: "Seu Zé",
+    //   destino: {
+    //     longitude: e.nativeEvent.coordinate.longitude,
+    //     latitude: e.nativeEvent.coordinate.latitude
+    //   },
     //   latLog: {
-    //     longitude: e.nativeEvent.coordinate.longitude-10,
-    //     latitude: e.nativeEvent.coordinate.latitude-10
+    //     longitude: e.nativeEvent.coordinate.longitude,
+    //     latitude: e.nativeEvent.coordinate.latitude
+    //   },
+    // })
+    // createPoint({
+    //   tipo: medicalType,
+    //   name: "Atendimento médico COVID19",
+    //   description: "Atendimento médico para caminhoneiros para combater o avanço da doença.",
+    //   latLog: {
+    //     longitude: e.nativeEvent.coordinate.longitude,
+    //     latitude: e.nativeEvent.coordinate.latitude
+    //   },
+    // })
+    // createPoint({
+    //   tipo: stopPointType,
+    //   nome: "Ponto de parada CCR",
+    //   latLog: {
+    //     longitude: e.nativeEvent.coordinate.longitude,
+    //     latitude: e.nativeEvent.coordinate.latitude
     //   },
     //   medico: {
     //     pago: false
@@ -66,27 +92,81 @@ export default function Map() {
     //   },
     //   food: {
     //     lanchonete: true,
-    //     cafe_manha: false,
+    //     cafe_manha: true,
     //     almoco: true,
     //     janta: true
     //   },
     //   sanitario: {
     //     preco: 0,
-    //     avaliacao: 3
+    //     avaliacao: 4
     //   },
     //   chuveiro: {
-    //     preco: 10,
+    //     preco: 0,
     //     avaliacao: 5
     //   },
     //   per_noite: {
     //     preco: 10,
-    //     avaliacao: 2,
+    //     avaliacao: 5,
     //   },
     //   borracaria: false,
     //   mecanico: false,
     //   seguranca: 2
     // })
-    // console.log(e.nativeEvent.coordinate)
+  }
+  function Points() {
+    return points.map(point => {
+      switch (point.tipo) {
+        case pedagioType:
+          return (
+            <Marker
+              onPress={() => {
+                console.log(point)
+              }}
+              coordinate={point.latLog}
+              icon={require("../../assets/img/pedagio.png")}
+            />
+          )
+        case stopPointType:
+          return (
+            <Marker
+              onPress={() => {
+                console.log(point)
+              }}
+              coordinate={point.latLog}
+              icon={require("../../assets/img/parada.png")}
+            />
+          )
+        case medicalType:
+          return (
+            <Marker
+              onPress={() => {
+                console.log(point)
+              }}
+              coordinate={point.latLog}
+              icon={require("../../assets/img/saude.png")}
+            />
+          )
+        case packageType:
+          return (
+            <Marker
+              onPress={() => {
+                console.log(point)
+              }}
+              coordinate={point.latLog}
+              icon={require("../../assets/img/pacote.png")}
+            />
+          )
+        default:
+          return (
+            <Marker
+              onPress={() => {
+                console.log(point)
+              }}
+              coordinate={point.latLog}
+            />
+          )
+      }
+    })
   }
   return (
     <>
@@ -100,20 +180,7 @@ export default function Map() {
           showsUserLocation={true}
           showsMyLocationButton={true}
         >
-          {points.map(point => (
-            <Marker
-              onPress={() => {
-                console.log(point)
-              }}
-              coordinate={point.latLog}
-            >
-              {/* <SvgUri
-                width={42}
-                height={42}
-                uri={"https://image.flaticon.com/icons/svg/2962/2962901.svg"}
-              /> */}
-            </Marker>
-          ))}
+          <Points />
         </MapView>
       </View>
     </>

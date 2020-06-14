@@ -5,6 +5,8 @@ import _ from 'lodash';
 
 export const pedagioType = "PEDAGIO"
 export const stopPointType = "PONTO_DE_PARADA"
+export const medicalType = "ACAO_MEDICA"
+export const packageType = "PACKAGE"
 
 // const pedagioModel = {
 //   tipo: pedagio,
