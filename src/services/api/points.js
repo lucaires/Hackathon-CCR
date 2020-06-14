@@ -1,10 +1,12 @@
 import React from "react"
 
-import * as firebase from "firebase"
+import {database} from "firebase"
 import _ from 'lodash';
 
 export const pedagioType = "PEDAGIO"
 export const stopPointType = "PONTO_DE_PARADA"
+export const medicalType = "ACAO_MEDICA"
+export const packageType = "PACKAGE"
 
 // const pedagioModel = {
 //   tipo: pedagio,
@@ -26,7 +28,8 @@ export const stopPointType = "PONTO_DE_PARADA"
 //   food: {
 //     lanchonete: true - false,
 //     cafe_manha: true - false,
-//     almoco: true - false
+//     almoco: true - false,
+//     janta: true - false
 //   },
 //   sanitario: {
 //     preco: 0,
@@ -44,33 +47,30 @@ export const stopPointType = "PONTO_DE_PARADA"
 //   mecanico: true - false,
 //   seguranca: 1 - 5
 // }
- 
+
 
 export function createPoint(pointData) {
-    var newPointRef = firebase.database().ref('points').push()
-    .then(()=>{
-      newPointRef.set({ id: newPointRef.key, ...pointData })
-    })
+  var newPointRef = database().ref('points').push()
+  database().ref("points/"+newPointRef.key).set({ id: newPointRef.key, ...pointData })
+    .catch((error) => {
+      console.log(error)
+    });
 }
 
 export const getPoint = (pointId) => {
-  firebase.database().ref('points').child(pointId).on('value', (point) => {
+  database().ref('points').child(pointId).on('value', (point) => {
     return point.val()
   })
-    .catch((error) => {
-      console.log(error)
-    });
+};
+export const getPoints = (callback) => {
+  database().ref('points').on('value', (point) => {
+     callback(_.values(point.val()))
+  });
 };
 
 export const turnOffPointRef = (pointId) => {
-  firebase.database().ref('points').child(pointId).off()
-    .catch((error) => {
-      console.log(error)
-    });
+  database().ref('points').child(pointId).off()
 };
-
-export const getPoints = () => {
-  problemasRef.on('value', (snapshortProblemas) => {
-    return Object.entries(snapshortProblemas.val())
-  });
+export const turnOffPointsRef = () => {
+  database().ref('points').off()
 };
