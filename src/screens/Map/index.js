@@ -2,7 +2,7 @@ import React from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { View } from "react-native";
 import { SearchBar } from "react-native-elements";
-
+import { useNavigation } from '@react-navigation/native';
 import {
   createPoint,
   turnOffPointsRef,
@@ -19,15 +19,15 @@ import { SvgUri } from "react-native-svg";
 import styles from "./style";
 
 export default function Map() {
-  const Navigation = useNavigation();
+  const Navigation = useNavigation()
   const [region, setRegion] = React.useState({
-    latitude: -14.235004,
-    longitude: -51.92528,
-    latitudeDelta: 50,
-    longitudeDelta: 50,
-  });
+    "latitude": -23.419229990400986,
+    "latitudeDelta": 0.061393467620753484,
+    "longitude": -46.393510680645704,
+    "longitudeDelta": 0.0451606884598732,
+  })
 
-  const [points, setPoints] = React.useState([]);
+  const [points, setPoints] = React.useState([])
 
   React.useEffect(() => {
     getPoints((data) => setPoints(data));
@@ -123,63 +123,53 @@ export default function Map() {
     // })
   }
   function onMarkerPress(point) {
-    turnOffPointsRef();
-    Navigation.navigate("Point", point);
+    turnOffPointsRef()
+    Navigation.navigate("Point",point)
   }
   function Points() {
-    return points.map((point) => {
+    return points.map(point => {
       switch (point.tipo) {
         case pedagioType:
           return (
             <Marker
-              onPress={() => {
-                console.log(point);
-              }}
+              onPress={() => onMarkerPress(point)}
               coordinate={point.latLog}
               icon={require("../../assets/img/pedagio.png")}
             />
-          );
+          )
         case stopPointType:
           return (
             <Marker
-              onPress={() => {
-                console.log(point);
-              }}
+              onPress={() => onMarkerPress(point)}
               coordinate={point.latLog}
               icon={require("../../assets/img/parada.png")}
             />
-          );
+          )
         case medicalType:
           return (
             <Marker
-              onPress={() => {
-                console.log(point);
-              }}
+              onPress={() => onMarkerPress(point)}
               coordinate={point.latLog}
               icon={require("../../assets/img/saude.png")}
             />
-          );
+          )
         case packageType:
           return (
             <Marker
-              onPress={() => {
-                console.log(point);
-              }}
+              onPress={() => onMarkerPress(point)}
               coordinate={point.latLog}
               icon={require("../../assets/img/pacote.png")}
             />
-          );
+          )
         default:
           return (
             <Marker
-              onPress={() => {
-                console.log(point);
-              }}
+              onPress={() => onMarkerPress(point.id)}
               coordinate={point.latLog}
             />
-          );
+          )
       }
-    });
+    })
   }
 
   return (

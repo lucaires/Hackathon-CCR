@@ -12,10 +12,7 @@ export default function Filter() {
   const Navigation = useNavigation();
 
   function filtered() {
-    Navigation.reset({
-      index: 0,
-      routes: [{ name: "Main" }],
-    });
+    Navigation.navigate("Map")
   }
   const [stylesitems, setStylesitems] = React.useState(styles.item);
   const [stylesitems1, setStylesitems1] = React.useState(styles.item);
