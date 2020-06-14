@@ -19,6 +19,7 @@ import { SvgUri } from "react-native-svg";
 import styles from "./style";
 
 export default function Map() {
+  const Navigation = useNavigation();
   const [region, setRegion] = React.useState({
     latitude: -14.235004,
     longitude: -51.92528,
@@ -120,6 +121,10 @@ export default function Map() {
     //   mecanico: false,
     //   seguranca: 2
     // })
+  }
+  function onMarkerPress(point) {
+    turnOffPointsRef();
+    Navigation.navigate("Point", point);
   }
   function Points() {
     return points.map((point) => {

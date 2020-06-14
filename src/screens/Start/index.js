@@ -19,8 +19,9 @@ export default function Start() {
         <Text style={style.slogan}>O almanaque do caminhoneiro brasileiro</Text>
       </View>
       <View >
-        <Button mode="contained" style={style.button} text="Já tenho uma conta" onPress={() => Navigation.navigate('SingIn')}>Entrar</Button>
-        <Button color={Colors.white} style={style.buttonText} text="criar conta" onPress={() => Navigation.navigate('SingUp')} >criar conta</Button>
+        <Button mode="contained" style={style.button} onPress={() => Navigation.navigate('SingIn')}>Entrar</Button>
+        <Button mode="contained" style={style.button} onPress={() => Navigation.navigate('Carga')}>Cadastra uma carga</Button>
+        <Button color={Colors.white} style={style.buttonText}  onPress={() => Navigation.navigate('SingUp')} >criar conta</Button>
       </View>
     </ImageBackground>
   )
