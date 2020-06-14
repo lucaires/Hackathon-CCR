@@ -23,13 +23,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  subTitle: {
-    fontSize: 20,
-    padding: 20,
-    fontFamily: "Roboto_400Regular",
-  },
-
   imgTel: {
+    marginTop: 30,
     width: 350,
     height: 280,
     alignSelf: "center",
