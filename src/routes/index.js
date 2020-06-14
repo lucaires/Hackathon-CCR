@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import Colors from "../assets/colors"
 
@@ -10,7 +10,7 @@ import Start from "../screens/Start"
 import SingUp from "../screens/SingUp"
 import Main from "../screens/Main"
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator();
 export default function Routes() {
   return (
     <NavigationContainer>
@@ -18,7 +18,7 @@ export default function Routes() {
         <Stack.Screen
           name="Start"
           component={Start}
-          options={{ header: () => { } }}
+          options={{ header: () => {} }}
         />
         <Stack.Screen
           name="Main"
@@ -28,7 +28,7 @@ export default function Routes() {
         <Stack.Screen
           name="SingIn"
           component={SingIn}
-        options={{ title: "Login" }}
+          options={{ title: "Login" }}
         />
         <Stack.Screen
           name="SingUp"
@@ -37,5 +37,5 @@ export default function Routes() {
         />
       </Stack.Navigator>
     </NavigationContainer>
-  )
+  );
 }
