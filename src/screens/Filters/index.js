@@ -1,7 +1,6 @@
 import React from "react";
-import { Text, View, ScrollView, TouchableOpacity, Switch } from "react-native";
+import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 import { SvgUri } from "react-native-svg";
-import { Rating, AirbnbRating } from "react-native-elements";
 import { Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 
@@ -11,7 +10,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function Filter() {
   const shield = require("../../assets/shield.png");
   const Navigation = useNavigation();
-  const [selectedItem, setSelectedItem] = React.useState([]);
 
   function filtered() {
     Navigation.reset({
@@ -19,16 +17,18 @@ export default function Filter() {
       routes: [{ name: "Main" }],
     });
   }
-
-  let stylesitems = styles.item;
-
-  function changeStyle() {
-    if (stylesitems == styles.item) {
-      stylesitems = styles.selectedItems;
-    } else {
-      stylesitems = styles.item;
-    }
-  }
+  const [stylesitems, setStylesitems] = React.useState(styles.item);
+  const [stylesitems1, setStylesitems1] = React.useState(styles.item);
+  const [stylesitems2, setStylesitems2] = React.useState(styles.item);
+  const [stylesitems3, setStylesitems3] = React.useState(styles.item);
+  const [stylesitems4, setStylesitems4] = React.useState(styles.item);
+  const [stylesitems5, setStylesitems5] = React.useState(styles.item);
+  const [stylesitems6, setStylesitems6] = React.useState(styles.item);
+  const [stylesitems7, setStylesitems7] = React.useState(styles.item);
+  const [stylesitems8, setStylesitems8] = React.useState(styles.item);
+  const [stylesitems9, setStylesitems9] = React.useState(styles.item);
+  const [stylesitems10, setStylesitems10] = React.useState(styles.item);
+  const [stylesitems11, setStylesitems11] = React.useState(styles.item);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -37,7 +37,11 @@ export default function Filter() {
         <View style={styles.categorias}>
           <TouchableOpacity
             style={stylesitems}
-            onPress={() => changeStyle()}
+            onPress={() =>
+              setStylesitems(
+                stylesitems == styles.item ? styles.selectedItems : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -48,8 +52,12 @@ export default function Filter() {
             <Text style={styles.itemTitle}>Cargas</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => console.log("hello!!")}
+            style={stylesitems1}
+            onPress={() =>
+              setStylesitems1(
+                stylesitems1 == styles.item ? styles.selectedItems : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -60,8 +68,12 @@ export default function Filter() {
             <Text style={styles.itemTitle}>Pedágios</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => console.log("hello!!")}
+            style={stylesitems2}
+            onPress={() =>
+              setStylesitems2(
+                stylesitems2 == styles.item ? styles.selectedItems : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -74,8 +86,12 @@ export default function Filter() {
         </View>
         <View style={styles.categorias}>
           <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => console.log("hello!!")}
+            style={stylesitems3}
+            onPress={() =>
+              setStylesitems3(
+                stylesitems3 == styles.item ? styles.selectedItems : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -89,8 +105,12 @@ export default function Filter() {
         <Text style={styles.title}>Infraestrutura</Text>
         <View style={styles.filterInfra}>
           <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => console.log("hello!!")}
+            style={stylesitems4}
+            onPress={() =>
+              setStylesitems4(
+                stylesitems4 == styles.item ? styles.selectedItems : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -101,8 +121,12 @@ export default function Filter() {
             <Text style={styles.itemTitle}>Alimentação</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => console.log("hello!!")}
+            style={stylesitems5}
+            onPress={() =>
+              setStylesitems5(
+                stylesitems5 == styles.item ? styles.selectedItems : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -113,8 +137,12 @@ export default function Filter() {
             <Text style={styles.itemTitle}>Local para descanso</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => console.log("hello!!")}
+            style={stylesitems6}
+            onPress={() =>
+              setStylesitems6(
+                stylesitems6 == styles.item ? styles.selectedItems : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -127,8 +155,12 @@ export default function Filter() {
         </View>
         <View style={styles.filterInfra}>
           <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => console.log("hello!!")}
+            style={stylesitems7}
+            onPress={() =>
+              setStylesitems7(
+                stylesitems7 == styles.item ? styles.selectedItems : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -139,8 +171,12 @@ export default function Filter() {
             <Text style={styles.itemTitle}>Sanitário</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => console.log("hello!!")}
+            style={stylesitems8}
+            onPress={() =>
+              setStylesitems8(
+                stylesitems8 == styles.item ? styles.selectedItems : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -154,8 +190,12 @@ export default function Filter() {
         <Text style={styles.title}>Manutenção</Text>
         <View style={styles.filterManu}>
           <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => console.log("hello!!")}
+            style={stylesitems9}
+            onPress={() =>
+              setStylesitems9(
+                stylesitems9 == styles.item ? styles.selectedItems : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -166,8 +206,14 @@ export default function Filter() {
             <Text style={styles.itemTitle}>Mecânico</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => console.log("hello!!")}
+            style={stylesitems10}
+            onPress={() =>
+              setStylesitems10(
+                stylesitems10 == styles.item
+                  ? styles.selectedItems
+                  : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -178,8 +224,14 @@ export default function Filter() {
             <Text style={styles.itemTitle}>Borracheiro</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => console.log("hello!!")}
+            style={stylesitems11}
+            onPress={() =>
+              setStylesitems11(
+                stylesitems11 == styles.item
+                  ? styles.selectedItems
+                  : styles.item
+              )
+            }
             activeOpacity={0.6}
           >
             <SvgUri
@@ -190,29 +242,7 @@ export default function Filter() {
             <Text style={styles.itemTitle}>Eletricista</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.classification}>
-          <Text style={styles.title}>Classificação</Text>
 
-          <AirbnbRating
-            count={5}
-            reviews={["Pessimo", "Ruim", "Regular", "Bom", "Muito bom"]}
-            defaultRating={0}
-            size={30}
-          />
-        </View>
-        <Text style={styles.title}>Segurança</Text>
-        <View style={styles.rating}>
-          <Rating
-            type="custom"
-            ratingImage={shield}
-            ratingColor="#3498db"
-            ratingBackgroundColor="#c8c7c8"
-            ratingCount={3}
-            imageSize={40}
-            onFinishRating={this.ratingCompleted}
-            style={{ paddingVertical: 10 }}
-          />
-        </View>
         <Button mode="contained" style={styles.button} onPress={filtered}>
           Aplicar Filtro
         </Button>

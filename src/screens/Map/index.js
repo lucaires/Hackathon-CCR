@@ -1,16 +1,22 @@
 import React from "react";
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, StatusBar } from 'react-native';
+import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
+import { View } from "react-native";
+import { SearchBar } from "react-native-elements";
 
 import {
-  createPoint, turnOffPointsRef, getPoints,
-  pedagioType, stopPointType, medicalType, packageType
-} from '../../services/api/points';
-import pointsArray from '../../services/api/pointsArray';
-import { database } from "firebase"
+  createPoint,
+  turnOffPointsRef,
+  getPoints,
+  pedagioType,
+  stopPointType,
+  medicalType,
+  packageType,
+} from "../../services/api/points";
+import pointsArray from "../../services/api/pointsArray";
+import { database } from "firebase";
 import { SvgUri } from "react-native-svg";
 
-import styles from "./style"
+import styles from "./style";
 
 export default function Map() {
   const [region, setRegion] = React.useState({
@@ -18,32 +24,34 @@ export default function Map() {
     longitude: -51.92528,
     latitudeDelta: 50,
     longitudeDelta: 50,
-  })
+  });
 
-  const [points, setPoints] = React.useState([])
+  const [points, setPoints] = React.useState([]);
 
   React.useEffect(() => {
-    getPoints((data) => setPoints(data))
-  }, [])
+    getPoints((data) => setPoints(data));
+  }, []);
 
   function getUserLocation() {
     navigator.geolocation.getCurrentPosition(
-      position => {
-        console.log(position)
+      (position) => {
+        console.log(position);
         setRegion({
-          "latitude": -23.419229990400986,      
-          "latitudeDelta": 0.061393467620753484,
-          "longitude": -46.393510680645704,     
-          "longitudeDelta": 0.0451606884598732, 
-        })
+          latitude: -23.419229990400986,
+          latitudeDelta: 0.061393467620753484,
+          longitude: -46.393510680645704,
+          longitudeDelta: 0.0451606884598732,
+        });
       },
-      error =>
+      (error) =>
         Alert.alert(
-          'Erro na localização',
-          'Não foi possível encontrar sua localização atual.'),
+          "Erro na localização",
+          "Não foi possível encontrar sua localização atual."
+        ),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     );
   }
+
   function onMapPress(e) {
     // createPoint({
     //   tipo: pedagioType,
@@ -114,60 +122,61 @@ export default function Map() {
     // })
   }
   function Points() {
-    return points.map(point => {
+    return points.map((point) => {
       switch (point.tipo) {
         case pedagioType:
           return (
             <Marker
               onPress={() => {
-                console.log(point)
+                console.log(point);
               }}
               coordinate={point.latLog}
               icon={require("../../assets/img/pedagio.png")}
             />
-          )
+          );
         case stopPointType:
           return (
             <Marker
               onPress={() => {
-                console.log(point)
+                console.log(point);
               }}
               coordinate={point.latLog}
               icon={require("../../assets/img/parada.png")}
             />
-          )
+          );
         case medicalType:
           return (
             <Marker
               onPress={() => {
-                console.log(point)
+                console.log(point);
               }}
               coordinate={point.latLog}
               icon={require("../../assets/img/saude.png")}
             />
-          )
+          );
         case packageType:
           return (
             <Marker
               onPress={() => {
-                console.log(point)
+                console.log(point);
               }}
               coordinate={point.latLog}
               icon={require("../../assets/img/pacote.png")}
             />
-          )
+          );
         default:
           return (
             <Marker
               onPress={() => {
-                console.log(point)
+                console.log(point);
               }}
               coordinate={point.latLog}
             />
-          )
+          );
       }
-    })
+    });
   }
+
   return (
     <>
       <View style={styles.container}>
@@ -183,6 +192,22 @@ export default function Map() {
           <Points />
         </MapView>
       </View>
+      <SearchBar
+        style={styles.search}
+        lightTheme
+        onChangeText={() => {}}
+        onClearText={() => {}}
+        icon={{ type: "font-awesome", name: "search" }}
+        placeholder="Local de partida"
+      />
+      <SearchBar
+        style={styles.search}
+        lightTheme
+        onChangeText={() => {}}
+        onClearText={() => {}}
+        icon={{ type: "font-awesome", name: "search" }}
+        placeholder="Destino"
+      />
     </>
   );
 }
