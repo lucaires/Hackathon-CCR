@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
     padding: 20,
     fontFamily: "Ubuntu_700Bold",
   },
+  subTitle: {
+    marginLeft: 20,
+    fontFamily: "Roboto_500Medium",
+  },
 
   logo: {
     width: 240,
