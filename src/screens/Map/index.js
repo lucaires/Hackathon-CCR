@@ -2,7 +2,8 @@ import React from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, StatusBar } from 'react-native';
 
-import {database} from 'firebase';
+import {createPoint, pedagioType, turnOffPointRef} from '../../services/api/points';
+import pointsArray from '../../services/api/pointsArray';
 
 import styles from "./style"
 
@@ -15,7 +16,6 @@ export default function Map() {
   })
   const [stopPoints, setStopPoints] = React.useState([])
   React.useEffect(() => {
-    database().ref('teste').set("deu certo")
     getUserLocation()
   }, [])
   function getUserLocation() {
@@ -37,6 +37,14 @@ export default function Map() {
     );
   }
   function onMapPress(e) {
+    createPoint({
+      tipo: pedagioType,
+      latLog: {
+        log: e.nativeEvent.coordinate.longitude,
+        lat: e.nativeEvent.coordinate.latitude
+      },
+      preco: 5.0,
+    })
     console.log(e.nativeEvent.coordinate)
   }
   function StopPoints(){
