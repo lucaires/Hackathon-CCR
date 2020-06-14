@@ -57,9 +57,10 @@ export function createPoint(pointData) {
     });
 }
 
-export const getPoint = (pointId) => {
-  database().ref('points').child(pointId).on('value', (point) => {
-    return point.val()
+export const getPoint = (pointId, callback) => {
+  database().ref('points/'+pointId).on('value', (point) => {
+    console.log(point.val())
+    callback(point.val())
   })
 };
 export const getPoints = (callback) => {

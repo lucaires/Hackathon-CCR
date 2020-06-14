@@ -9,6 +9,8 @@ import SingIn from "../screens/SingIn"
 import Start from "../screens/Start"
 import SingUp from "../screens/SingUp"
 import Main from "../screens/Main"
+import Point from "../screens/Point"
+import Carga from "../screens/Carga"
 
 const Stack = createStackNavigator();
 export default function Routes() {
@@ -34,6 +36,16 @@ export default function Routes() {
           name="SingUp"
           component={SingUp}
           options={{ title: "Criar conta" }}
+        />
+        <Stack.Screen
+          name="Point"
+          component={Point}
+          options={{ title: "" }}
+        />
+        <Stack.Screen
+          name="Carga"
+          component={Carga}
+          options={{ title: "Cadastrar carga" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

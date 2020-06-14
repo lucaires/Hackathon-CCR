@@ -1,7 +1,7 @@
 import React from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, StatusBar } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 import {
   createPoint, turnOffPointsRef, getPoints,
   pedagioType, stopPointType, medicalType, packageType
@@ -13,11 +13,12 @@ import { SvgUri } from "react-native-svg";
 import styles from "./style"
 
 export default function Map() {
+  const Navigation = useNavigation()
   const [region, setRegion] = React.useState({
-    latitude: -14.235004,
-    longitude: -51.92528,
-    latitudeDelta: 50,
-    longitudeDelta: 50,
+    "latitude": -23.419229990400986,
+    "latitudeDelta": 0.061393467620753484,
+    "longitude": -46.393510680645704,
+    "longitudeDelta": 0.0451606884598732,
   })
 
   const [points, setPoints] = React.useState([])
@@ -31,10 +32,10 @@ export default function Map() {
       position => {
         console.log(position)
         setRegion({
-          "latitude": -23.419229990400986,      
+          "latitude": -23.419229990400986,
           "latitudeDelta": 0.061393467620753484,
-          "longitude": -46.393510680645704,     
-          "longitudeDelta": 0.0451606884598732, 
+          "longitude": -46.393510680645704,
+          "longitudeDelta": 0.0451606884598732,
         })
       },
       error =>
@@ -113,15 +114,17 @@ export default function Map() {
     //   seguranca: 2
     // })
   }
+  function onMarkerPress(point) {
+    turnOffPointsRef()
+    Navigation.navigate("Point",point)
+  }
   function Points() {
     return points.map(point => {
       switch (point.tipo) {
         case pedagioType:
           return (
             <Marker
-              onPress={() => {
-                console.log(point)
-              }}
+              onPress={() => onMarkerPress(point)}
               coordinate={point.latLog}
               icon={require("../../assets/img/pedagio.png")}
             />
@@ -129,9 +132,7 @@ export default function Map() {
         case stopPointType:
           return (
             <Marker
-              onPress={() => {
-                console.log(point)
-              }}
+              onPress={() => onMarkerPress(point)}
               coordinate={point.latLog}
               icon={require("../../assets/img/parada.png")}
             />
@@ -139,9 +140,7 @@ export default function Map() {
         case medicalType:
           return (
             <Marker
-              onPress={() => {
-                console.log(point)
-              }}
+              onPress={() => onMarkerPress(point)}
               coordinate={point.latLog}
               icon={require("../../assets/img/saude.png")}
             />
@@ -149,9 +148,7 @@ export default function Map() {
         case packageType:
           return (
             <Marker
-              onPress={() => {
-                console.log(point)
-              }}
+              onPress={() => onMarkerPress(point)}
               coordinate={point.latLog}
               icon={require("../../assets/img/pacote.png")}
             />
@@ -159,9 +156,7 @@ export default function Map() {
         default:
           return (
             <Marker
-              onPress={() => {
-                console.log(point)
-              }}
+              onPress={() => onMarkerPress(point.id)}
               coordinate={point.latLog}
             />
           )
