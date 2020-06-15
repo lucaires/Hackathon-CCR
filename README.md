@@ -57,16 +57,16 @@ yarn install or npm install
 * Firebase
 * API GoogleMaps
 
-
+----
 ![alt text](https://i.ibb.co/S6yKh99/git1.png)
-
+----
 ![alt text](https://i.ibb.co/0FNykhx/git2.png)
-
+----
 ### Developed by:
 
 * Lucas Caires (https://github.com/lucaires)
 * Mateus Costa (https://github.com/mscmateus)
 * Ian Prioste (https://github.com/ianprioste)
-Thank you for your contribution!
 
 ----
+Thank you for your contribution!
