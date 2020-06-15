@@ -3,6 +3,7 @@
 ### App Mobile
 
 System of integrated solutions for the daily life of the truck driver.
+Application developed to meet the need of truck drivers, in order to offer these professionals a better schedule of their trip helping to find places to stop, medical posts, tolls and loads. Problem proposed by the concessionaire CCR and developed in a Hackathon.
 
 ### Dependencies
 
