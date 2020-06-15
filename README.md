@@ -68,3 +68,5 @@ yarn install or npm install
 * Mateus Costa (https://github.com/mscmateus)
 * Ian Prioste (https://github.com/ianprioste)
 Thank you for your contribution!
+
+----
