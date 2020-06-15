@@ -64,5 +64,7 @@ yarn install or npm install
 
 ### Developed by:
 
-lucaires, mscmateus and ianprioste
-*Thank you for your contribution!
+* lucaires
+* mscmateus
+* ianprioste
+Thank you for your contribution!
