@@ -62,7 +62,7 @@ yarn install or npm install
 
 ![alt text](https://i.ibb.co/0FNykhx/git2.png)
 
-### Contributions
+### Developed by:
 
-mscmateus and ianprioste.
-Thank you for your contribution!
+lucaires, mscmateus and ianprioste
+*Thank you for your contribution!
