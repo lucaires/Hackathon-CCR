@@ -58,9 +58,9 @@ yarn install or npm install
 * API GoogleMaps
 
 
-![alt text](https://ibb.co/qDjRtPP)
+![alt text](https://i.ibb.co/S6yKh99/git1.png)
 
-![alt text](https://ibb.co/cC5hPDj)
+![alt text](https://i.ibb.co/0FNykhx/git2.png)
 
 ### Contributions
 
