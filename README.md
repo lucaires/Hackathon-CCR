@@ -64,7 +64,5 @@ yarn install or npm install
 
 ### Contributions
 
-https://github.com/mscmateus
-https://github.com/ianprioste
-
+mscmateus and ianprioste
 Thank you for your contribution!
