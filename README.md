@@ -64,7 +64,7 @@ yarn install or npm install
 
 ### Developed by:
 
-* lucaires
-* mscmateus
-* ianprioste
+* Lucas Caires (https://github.com/lucaires)
+* Mateus Costa (https://github.com/mscmateus)
+* Ian Prioste (https://github.com/ianprioste)
 Thank you for your contribution!
