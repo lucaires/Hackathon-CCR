@@ -10,8 +10,16 @@ export default function Load() {
       <ScrollView style={styles.scrollv}>
         <Text style={styles.title}>Bem vindo!</Text>
         <Image
+          style={styles.anuncio}
+          source={require("../../assets/cardapio.png")}
+        />
+        <Image
           style={styles.logo}
           source={require("../../assets/CCR20anos.png")}
+        />
+        <Image
+          style={styles.anuncio2}
+          source={require("../../assets/caminhoneiro222.jpg")}
         />
         <Image
           style={styles.imgTel}

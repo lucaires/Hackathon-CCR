@@ -20,6 +20,19 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     fontFamily: "Roboto_500Medium",
   },
+  anuncio: {
+    marginBottom: 20,
+    width: 350,
+    height: 200,
+    alignSelf: "center",
+  },
+
+  anuncio2: {
+    marginTop: 20,
+    width: 350,
+    height: 200,
+    alignSelf: "center",
+  },
 
   logo: {
     width: 240,
@@ -28,14 +41,14 @@ const styles = StyleSheet.create({
   },
 
   imgTel: {
-    marginTop: 30,
+    marginTop: 10,
     width: 350,
     height: 280,
     alignSelf: "center",
   },
 
   imgCorona: {
-    marginTop: 20,
+    marginTop: 10,
     resizeMode: "contain",
     alignSelf: "center",
   },
